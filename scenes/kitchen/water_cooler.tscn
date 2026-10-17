@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://47vbpmleg252"]
+
+[ext_resource type="Texture2D" uid="uid://upvkicbppuxv" path="res://assets/png/kitchen_water_cooler.png" id="1_kitch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kitch"]
+radius = 15.525
+
+[node name="WaterCooler" type="Node2D" unique_id=735842619]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1053426957]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=108297549]
+position = Vector2(0, -1.125)
+shape = SubResource("CircleShape2D_kitch")
+
+[node name="KitchenWaterCooler" type="Sprite2D" parent="StaticBody2D" unique_id=891148256]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_kitch")

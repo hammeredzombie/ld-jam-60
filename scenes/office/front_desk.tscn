@@ -1,0 +1,14 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://bk8u4oqf4srp" path="res://assets/png/front_desk.png" id="1_front"]
+
+[node name="FrontDesk" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-41.4, -65.025, -17.1, -65.025, -17.1, 64.125, 27.9, 64.125, 27.9, -63.675, 16.65, -63.675, 16.65, -67.275, 41.85, -67.275, 41.85, 67.275, -41.4, 67.275)
+
+[node name="FrontDesk" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_front")

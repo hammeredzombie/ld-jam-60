@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://c8qr5cvo2hxho" path="res://assets/png/cabinet_long.png" id="1_cabin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cabin"]
+size = Vector2(31.95, 90.45)
+
+[node name="CabinetLong" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_cabin")
+
+[node name="CabinetLong" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_cabin")

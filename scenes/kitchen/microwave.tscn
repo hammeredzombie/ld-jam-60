@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://ceth0xeeve341" path="res://assets/png/kitchen_microwave.png" id="1_kitch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kitch"]
+size = Vector2(27.45, 18.45)
+
+[node name="KitchenMicrowave" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_kitch")
+
+[node name="KitchenMicrowave" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_kitch")

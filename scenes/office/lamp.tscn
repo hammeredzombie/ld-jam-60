@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://c01wux33k0b1g" path="res://assets/png/lamp.png" id="1_lamp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lamp"]
+size = Vector2(18.45, 11.25)
+
+[node name="Lamp" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_lamp")
+
+[node name="Lamp" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_lamp")

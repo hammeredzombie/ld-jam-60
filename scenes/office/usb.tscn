@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="1_usb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usb"]
+size = Vector2(3.15, 6.3)
+
+[node name="Usb" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_usb")
+
+[node name="Usb" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_usb")

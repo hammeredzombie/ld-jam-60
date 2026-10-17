@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="1_compu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_compu"]
+size = Vector2(31.5, 33.3)
+
+[node name="ComputerDesktopMonitor" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_compu")
+
+[node name="ComputerDesktopMonitor" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_compu")

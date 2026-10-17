@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dckwcj4i1kgqq"]
+
+[ext_resource type="Texture2D" uid="uid://cpwu2yl25vjln" path="res://assets/png/kitchen_fridge.png" id="1_kitch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kitch"]
+size = Vector2(46.8, 34.2)
+
+[node name="Fridge" type="Node2D" unique_id=558835300]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=315729043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1763921799]
+shape = SubResource("RectangleShape2D_kitch")
+
+[node name="KitchenFridge" type="Sprite2D" parent="StaticBody2D" unique_id=2075439562]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_kitch")

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dghvxwcbldj47"]
+
+[ext_resource type="Texture2D" uid="uid://b7bsi73yfqfbd" path="res://assets/png/floor.png" id="1_3e7dm"]
+[ext_resource type="Texture2D" uid="uid://cppd8vcc4yerp" path="res://assets/png/walls.png" id="2_n0wcf"]
+[ext_resource type="Texture2D" uid="uid://kasgb8fu2xs6" path="res://assets/png/door.png" id="3_jwaux"]
+[ext_resource type="PackedScene" uid="uid://dsmn3xim38ian" path="res://scenes/office/cubicle.tscn" id="4_nanex"]
+[ext_resource type="PackedScene" uid="uid://b6ethu0rc0lwu" path="res://scenes/kitchen/kitchen.tscn" id="5_66du1"]
+[ext_resource type="PackedScene" uid="uid://lr0hrvi625s7" path="res://scenes/player.tscn" id="6_art4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
+size = Vector2(8, 72)
+
+[node name="Office" type="Node2D" unique_id=461136865]
+
+[node name="Floor" type="Sprite2D" parent="." unique_id=1030413298]
+position = Vector2(576, 324)
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_3e7dm")
+
+[node name="Door" type="RigidBody2D" parent="." unique_id=1379131271]
+position = Vector2(6, 324)
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1612313112]
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_jwaux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" unique_id=327456891]
+shape = SubResource("RectangleShape2D_l502e")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=635471561]
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls" unique_id=1106072963]
+position = Vector2(576, 324)
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_n0wcf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=256452560]
+polygon = PackedVector2Array(0, 288, 13, 288, 13, 16, 1136, 16, 1136, 634, 13, 634, 13, 360, 0, 360, 0, 648, 1152, 648, 1152, 0, 0, 0)
+
+[node name="Cubicle" parent="." unique_id=1329360434 instance=ExtResource("4_nanex")]
+position = Vector2(465, 314)
+
+[node name="Kitchen" parent="." unique_id=375075012 instance=ExtResource("5_66du1")]
+position = Vector2(1077, 77)
+rotation = 1.5707964
+
+[node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
+position = Vector2(1090, 64)

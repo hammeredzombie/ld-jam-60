@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" uid="uid://kasgb8fu2xs6" path="res://assets/png/door.png" id="1_door"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(72.45, 9.45)
+
+[node name="Door" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_door")
+
+[node name="Door" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_door")

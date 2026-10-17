@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dsmn3xim38ian"]
+
+[ext_resource type="Texture2D" uid="uid://b4m8410qbp2ur" path="res://assets/png/cubicle.png" id="1_xs06v"]
+
+[node name="Cubicle" type="Node2D" unique_id=1329360434]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=650262916]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1387942236]
+polygon = PackedVector2Array(-56, -56, -32, -56, -32, -52, -52, -52, -52, 18, 23, 18, 23, -55, 56, -55, 56, 56, -56, 56)
+
+[node name="Cubicle" type="Sprite2D" parent="StaticBody2D" unique_id=940854282]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_xs06v")
