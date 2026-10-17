@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dsmn3xim38ian" path="res://scenes/office/cubicle.tscn" id="4_nanex"]
 [ext_resource type="PackedScene" uid="uid://b6ethu0rc0lwu" path="res://scenes/kitchen/kitchen.tscn" id="5_66du1"]
 [ext_resource type="PackedScene" uid="uid://lr0hrvi625s7" path="res://scenes/player.tscn" id="6_art4y"]
+[ext_resource type="PackedScene" uid="uid://cmlmes8qejf6o" path="res://scenes/office/front_desk.tscn" id="7_8d8gp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(8, 72)
@@ -41,7 +42,7 @@ texture = ExtResource("2_n0wcf")
 polygon = PackedVector2Array(0, 288, 13, 288, 13, 16, 1136, 16, 1136, 634, 13, 634, 13, 360, 0, 360, 0, 648, 1152, 648, 1152, 0, 0, 0)
 
 [node name="Cubicle" parent="." unique_id=1329360434 instance=ExtResource("4_nanex")]
-position = Vector2(465, 314)
+position = Vector2(230, 182)
 
 [node name="Kitchen" parent="." unique_id=375075012 instance=ExtResource("5_66du1")]
 position = Vector2(1077, 77)
@@ -49,3 +50,7 @@ rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
 position = Vector2(1090, 64)
+
+[node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]
+position = Vector2(81, 592)
+rotation = 1.5707964

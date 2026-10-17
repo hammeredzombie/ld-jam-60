@@ -1,14 +1,18 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cmlmes8qejf6o"]
 
 [ext_resource type="Texture2D" uid="uid://bk8u4oqf4srp" path="res://assets/png/front_desk.png" id="1_front"]
+[ext_resource type="PackedScene" path="res://scenes/office/chair.tscn" id="2_sehb4"]
 
-[node name="FrontDesk" type="Node2D"]
+[node name="FrontDesk" type="Node2D" unique_id=515620313]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1575005898]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1500584720]
 polygon = PackedVector2Array(-41.4, -65.025, -17.1, -65.025, -17.1, 64.125, 27.9, 64.125, 27.9, -63.675, 16.65, -63.675, 16.65, -67.275, 41.85, -67.275, 41.85, 67.275, -41.4, 67.275)
 
-[node name="FrontDesk" type="Sprite2D" parent="StaticBody2D"]
+[node name="FrontDesk" type="Sprite2D" parent="StaticBody2D" unique_id=1705265832]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_front")
+
+[node name="Chair" parent="." unique_id=1581636872 instance=ExtResource("2_sehb4")]
+rotation = 2.008874

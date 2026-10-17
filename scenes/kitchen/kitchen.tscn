@@ -5,12 +5,16 @@
 [ext_resource type="Texture2D" uid="uid://kl7j1ae77flm" path="res://assets/png/kitchen_cabinet_drawer.png" id="3_a4owj"]
 [ext_resource type="Texture2D" uid="uid://dq2vdw8aia456" path="res://assets/png/kitchen_coffee_maker.png" id="4_lmija"]
 [ext_resource type="PackedScene" uid="uid://47vbpmleg252" path="res://scenes/kitchen/water_cooler.tscn" id="5_yi3jr"]
-[ext_resource type="PackedScene" uid="uid://dckwcj4i1kgqq" path="res://scenes/kitchen/fridge.tscn" id="6_a4owj"]
 [ext_resource type="Texture2D" uid="uid://p8eh3vobpe1l" path="res://assets/png/coffee.png" id="7_lmija"]
+[ext_resource type="Texture2D" uid="uid://cpwu2yl25vjln" path="res://assets/png/kitchen_fridge.png" id="8_lmija"]
 [ext_resource type="Texture2D" uid="uid://dojtcut6sp7g4" path="res://assets/png/kitchen_plate.png" id="8_m0td3"]
+[ext_resource type="Texture2D" uid="uid://81sbgw02vo0u" path="res://assets/png/kitchen_fridge_door.png" id="9_m0td3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4owj"]
 size = Vector2(6, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmhdv"]
+size = Vector2(46.8, 25)
 
 [node name="Kitchen" type="Node2D" unique_id=375075012]
 script = ExtResource("1_hwcho")
@@ -31,9 +35,6 @@ texture = ExtResource("4_lmija")
 
 [node name="WaterCooler" parent="." unique_id=735842619 instance=ExtResource("5_yi3jr")]
 position = Vector2(135, -41)
-
-[node name="Fridge" parent="." unique_id=558835300 instance=ExtResource("6_a4owj")]
-position = Vector2(90, -41)
 
 [node name="Coffee" type="Sprite2D" parent="." unique_id=999811263]
 position = Vector2(-1, -39)
@@ -84,3 +85,31 @@ texture = ExtResource("3_a4owj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door4" unique_id=1224929576]
 shape = SubResource("RectangleShape2D_a4owj")
+
+[node name="Fridge" type="StaticBody2D" parent="." unique_id=951794376]
+position = Vector2(89, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fridge" unique_id=780859894]
+shape = SubResource("RectangleShape2D_hmhdv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fridge" unique_id=1727675275]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_lmija")
+
+[node name="FridgeDoor" type="StaticBody2D" parent="." unique_id=1590122954]
+position = Vector2(89, -24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FridgeDoor" unique_id=366398395]
+position = Vector2(0, -2)
+polygon = PackedVector2Array(-23, -2, 23, -2, 23, 3, -6, 3, -6, 6, -16, 6, -16, 3, -23, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="FridgeDoor" unique_id=1724055062]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("9_m0td3")
+
+[node name="Area2D" type="Area2D" parent="FridgeDoor" unique_id=594086062]
+position = Vector2(0, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FridgeDoor/Area2D" unique_id=167077845]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(-23, -2, 23, -2, 23, 3, -6, 3, -6, 6, -16, 6, -16, 3, -23, 3)

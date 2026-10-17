@@ -1,17 +1,22 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://th4wqpxdx0ak"]
 
 [ext_resource type="Texture2D" uid="uid://dfl34voobyncw" path="res://assets/png/cabinet.png" id="1_cabin"]
+[ext_resource type="PackedScene" path="res://scenes/office/cabinet_drawer.tscn" id="2_q8wol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cabin"]
 size = Vector2(32.85, 31.5)
 
-[node name="Cabinet" type="Node2D"]
+[node name="Cabinet" type="Node2D" unique_id=164574680]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=412229105]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1500098602]
 shape = SubResource("RectangleShape2D_cabin")
 
-[node name="Cabinet" type="Sprite2D" parent="StaticBody2D"]
+[node name="Cabinet" type="Sprite2D" parent="StaticBody2D" unique_id=1409904618]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_cabin")
+
+[node name="CabinetDrawer" parent="." unique_id=1701403325 instance=ExtResource("2_q8wol")]
+z_index = -1
+position = Vector2(9, 0)
