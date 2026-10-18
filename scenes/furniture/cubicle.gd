@@ -1,18 +1,18 @@
 extends Node2D
+class_name Cubicle
 
+var USB_SCENE = preload("res://scenes/furniture/usb.tscn")
 
-@export var has_usb: bool = true
+var has_usb: bool = true
+var computer_on: bool = false
+var _Worker: CharacterBody2D = null
 
-@onready var _Desktop: Sprite2D = $Desktop
-@onready var _Monitor: Sprite2D = $Monitor
 @onready var _MonitorGlow: Sprite2D = $MonitorGlow
 @onready var _Lamp: Node2D = $Lamp
-@onready var _Marker1: Marker2D = $Marker1
-@onready var _Marker2: Marker2D = $Marker2
-@onready var _Marker3: Marker2D = $Marker3
 @onready var _PictureFrame1: Sprite2D = $PictureFrame1
 @onready var _PictureFrame2: Sprite2D = $PictureFrame2
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
@@ -27,6 +27,19 @@ func _ready() -> void:
 		_PictureFrame2.show()
 		_PictureFrame2.rotation = rng.randf_range(deg_to_rad(0), deg_to_rad(30))
 
+	if has_usb:
+		var usb = USB_SCENE.instantiate()
+		var usb_position = rng.randi_range(1, 3)
+		var usb_marker = get_node("Marker%s" % usb_position)
+		usb.position = usb_marker.position
+		add_child(usb)
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
+
+func spawn_worker(worker: CharacterBody2D) -> void:
+	_Worker = worker
+	add_child(_Worker)
+	_Worker.global_position = global_position

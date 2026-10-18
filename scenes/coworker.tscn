@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://u0tysnnllo0v" path="res://scenes/coworker.gd" id="1_xoil0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l502e"]
-radius = 24.0
+radius = 11.0
 
 [node name="Coworker" type="CharacterBody2D" unique_id=503286047]
 script = ExtResource("1_xoil0")
 
 [node name="Player" type="Sprite2D" parent="." unique_id=245292066]
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_5uxwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236876052]

@@ -39,7 +39,6 @@ texture = ExtResource("12_yi722")
 
 [node name="PictureFrame2" type="Sprite2D" parent="." unique_id=36869091]
 position = Vector2(46, -10)
-rotation = 0.05235988
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yi722")
 
