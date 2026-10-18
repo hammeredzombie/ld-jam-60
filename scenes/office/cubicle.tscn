@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bp0uhdikklhnx" path="res://scenes/office/cubicle.gd" id="1_i1aae"]
 [ext_resource type="Texture2D" uid="uid://b4m8410qbp2ur" path="res://assets/png/cubicle.png" id="1_xs06v"]
-[ext_resource type="PackedScene" path="res://scenes/office/chair.tscn" id="3_kooeq"]
-[ext_resource type="PackedScene" path="res://scenes/office/computer_desktop.tscn" id="4_g4hns"]
-[ext_resource type="PackedScene" path="res://scenes/office/computer_desktop_glow.tscn" id="5_sk7ou"]
-[ext_resource type="PackedScene" path="res://scenes/office/computer_laptop.tscn" id="6_0cgw3"]
-[ext_resource type="PackedScene" path="res://scenes/office/computer_desktop_monitor.tscn" id="7_yi722"]
-[ext_resource type="PackedScene" path="res://scenes/office/computer_laptop_glow.tscn" id="8_iw6we"]
-[ext_resource type="PackedScene" path="res://scenes/office/lamp.tscn" id="10_0cgw3"]
-[ext_resource type="PackedScene" path="res://scenes/office/lamp_light.tscn" id="11_yi722"]
-[ext_resource type="PackedScene" path="res://scenes/office/usb.tscn" id="12_0cgw3"]
+[ext_resource type="PackedScene" uid="uid://bkyh7766aiinr" path="res://scenes/office/chair.tscn" id="3_kooeq"]
+[ext_resource type="Texture2D" uid="uid://bvw2164x4w7ye" path="res://assets/png/computer_desktop.png" id="8_0cgw3"]
+[ext_resource type="Texture2D" uid="uid://ovywl6nnrxod" path="res://assets/png/computer_desktop_glow.png" id="9_yi722"]
+[ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/office/lamp.tscn" id="10_0cgw3"]
+[ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="10_iw6we"]
+[ext_resource type="Texture2D" uid="uid://b32g6jfhtohgt" path="res://assets/png/computer_laptop.png" id="11_80p35"]
+[ext_resource type="PackedScene" uid="uid://c05rij35wm17l" path="res://scenes/office/usb.tscn" id="12_0cgw3"]
+[ext_resource type="Texture2D" uid="uid://bgm5ojio4arvl" path="res://assets/png/computer_laptop_glow.png" id="12_yexf1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/office/cabinet.tscn" id="13_yi722"]
 
@@ -27,47 +26,50 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_xs06v")
 
 [node name="Chair" parent="." unique_id=914924361 instance=ExtResource("3_kooeq")]
-
-[node name="ComputerDesktop" parent="." unique_id=442605419 instance=ExtResource("4_g4hns")]
-z_index = -1
-position = Vector2(-22, 23)
-
-[node name="ComputerDesktopGlow" parent="." unique_id=829455142 instance=ExtResource("5_sk7ou")]
-position = Vector2(1, 34)
-
-[node name="ComputerDesktopMonitor" parent="." unique_id=160381114 instance=ExtResource("7_yi722")]
-position = Vector2(-1, 36)
-
-[node name="ComputerLaptop" parent="." unique_id=1133489986 instance=ExtResource("6_0cgw3")]
-position = Vector2(37, 3)
-
-[node name="ComputerLaptopGlow" parent="." unique_id=855666836 instance=ExtResource("8_iw6we")]
-position = Vector2(43, 3)
+position = Vector2(2, 5)
+rotation = -1.288053
 
 [node name="Lamp" parent="." unique_id=1070543930 instance=ExtResource("10_0cgw3")]
 position = Vector2(35, 38)
-
-[node name="LampLight" parent="." unique_id=1372642998 instance=ExtResource("11_yi722")]
-position = Vector2(31, 38.5)
-
-[node name="UsbDesktop" parent="." unique_id=1633295965 instance=ExtResource("12_0cgw3")]
-position = Vector2(-23, 25)
-
-[node name="UsbLaptop" parent="." unique_id=732222691 instance=ExtResource("12_0cgw3")]
-position = Vector2(36, -12)
-rotation = 1.5707964
 
 [node name="PictureFrame" type="Sprite2D" parent="." unique_id=1687545458]
 position = Vector2(40, -38)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yi722")
 
-[node name="PictureFrame2" type="Sprite2D" parent="." unique_id=503267472]
-position = Vector2(-37, 36)
-rotation = 2.2148228
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_yi722")
-
-[node name="Cabinet" parent="." unique_id=1786476104 instance=ExtResource("13_yi722")]
-position = Vector2(-36.5, -36)
+[node name="Cabinet" parent="." unique_id=164574680 instance=ExtResource("13_yi722")]
+position = Vector2(-36, -35)
 rotation = 1.5707964
+
+[node name="UsbDesktop" parent="." unique_id=1144851240 instance=ExtResource("12_0cgw3")]
+position = Vector2(-17, 25)
+
+[node name="UsbLaptop" parent="." unique_id=514587139 instance=ExtResource("12_0cgw3")]
+position = Vector2(35, -11)
+rotation = -1.5707964
+
+[node name="Desktop" type="Sprite2D" parent="." unique_id=260274286]
+z_index = -1
+position = Vector2(-17, 24.000002)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_0cgw3")
+
+[node name="Monitor" type="Sprite2D" parent="." unique_id=341987166]
+position = Vector2(3, 36)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("10_iw6we")
+
+[node name="MonitorGlow" type="Sprite2D" parent="." unique_id=1522034016]
+position = Vector2(5, 33)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("9_yi722")
+
+[node name="Laptop" type="Sprite2D" parent="." unique_id=1296387127]
+position = Vector2(34.55, 3.9249992)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_80p35")
+
+[node name="LaptopGlow" type="Sprite2D" parent="." unique_id=1369845462]
+position = Vector2(41, 4)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_yexf1")

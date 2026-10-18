@@ -1,18 +1,20 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bkyh7766aiinr"]
 
 [ext_resource type="Texture2D" uid="uid://cqoisig5wxcdp" path="res://assets/png/chair.png" id="1_chair"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_chair"]
-radius = 12.15
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tu6t2"]
+radius = 3.0
+height = 14.0
 
-[node name="Chair" type="Node2D"]
+[node name="Chair" type="Node2D" unique_id=189352730]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1284317091]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_chair")
-
-[node name="Chair" type="Sprite2D" parent="RigidBody2D"]
+[node name="Chair" type="Sprite2D" parent="RigidBody2D" unique_id=1696172052]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_chair")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=2076554209]
+position = Vector2(1, -8)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tu6t2")

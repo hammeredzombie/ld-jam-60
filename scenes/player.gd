@@ -5,7 +5,7 @@ const CAMERA_ZOOM_MAX = 5.0
 const CAMERA_ZOOM_STEP = 0.2
 
 
-const RUN_SPEED = 300.0
+const RUN_SPEED = 200.0
 const WALK_SPEED = 100.0
 
 @onready var _Camera := $Camera2D

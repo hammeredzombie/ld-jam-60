@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://b6ethu0rc0lwu" path="res://scenes/kitchen/kitchen.tscn" id="5_66du1"]
 [ext_resource type="PackedScene" uid="uid://lr0hrvi625s7" path="res://scenes/player.tscn" id="6_art4y"]
 [ext_resource type="PackedScene" uid="uid://cmlmes8qejf6o" path="res://scenes/office/front_desk.tscn" id="7_8d8gp"]
+[ext_resource type="PackedScene" path="res://scenes/office/table.tscn" id="8_sf0ao"]
+[ext_resource type="PackedScene" path="res://scenes/office/printer.tscn" id="9_b6q11"]
+[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/office/cabinet.tscn" id="10_b6q11"]
+[ext_resource type="PackedScene" path="res://scenes/office/plant_1.tscn" id="11_y3s53"]
+[ext_resource type="PackedScene" path="res://scenes/office/plant_2.tscn" id="12_p8n5g"]
+[ext_resource type="PackedScene" path="res://scenes/office/plant_3.tscn" id="13_yexkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(8, 72)
@@ -14,6 +20,7 @@ size = Vector2(8, 72)
 [node name="Office" type="Node2D" unique_id=461136865]
 
 [node name="Floor" type="Sprite2D" parent="." unique_id=1030413298]
+z_index = -1
 position = Vector2(576, 324)
 rotation = 1.5707964
 scale = Vector2(0.45, 0.45)
@@ -41,16 +48,187 @@ texture = ExtResource("2_n0wcf")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=256452560]
 polygon = PackedVector2Array(0, 288, 13, 288, 13, 16, 1136, 16, 1136, 634, 13, 634, 13, 360, 0, 360, 0, 648, 1152, 648, 1152, 0, 0, 0)
 
-[node name="Cubicle" parent="." unique_id=1329360434 instance=ExtResource("4_nanex")]
-position = Vector2(230, 182)
-
 [node name="Kitchen" parent="." unique_id=375075012 instance=ExtResource("5_66du1")]
 position = Vector2(1077, 77)
 rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
-position = Vector2(1090, 64)
+z_index = 1
+position = Vector2(34, 324)
 
 [node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]
 position = Vector2(81, 592)
 rotation = 1.5707964
+
+[node name="Cubicles" type="Node" parent="." unique_id=262513993]
+
+[node name="Cubicle1" parent="Cubicles" unique_id=1329360434 instance=ExtResource("4_nanex")]
+position = Vector2(125, 125)
+workstation_type = null
+
+[node name="Cubicle2" parent="Cubicles" unique_id=154300178 instance=ExtResource("4_nanex")]
+position = Vector2(235, 126)
+workstation_type = null
+
+[node name="Cubicle3" parent="Cubicles" unique_id=583639162 instance=ExtResource("4_nanex")]
+position = Vector2(347, 127)
+workstation_type = null
+
+[node name="Cubicle4" parent="Cubicles" unique_id=1403381195 instance=ExtResource("4_nanex")]
+position = Vector2(457, 128)
+workstation_type = null
+
+[node name="Cubicle5" parent="Cubicles" unique_id=1319227999 instance=ExtResource("4_nanex")]
+position = Vector2(566, 129)
+workstation_type = null
+
+[node name="Cubicle6" parent="Cubicles" unique_id=908355530 instance=ExtResource("4_nanex")]
+position = Vector2(676, 130)
+workstation_type = null
+
+[node name="Cubicle7" parent="Cubicles" unique_id=1127018635 instance=ExtResource("4_nanex")]
+position = Vector2(788, 131)
+workstation_type = null
+
+[node name="Cubicle8" parent="Cubicles" unique_id=157336634 instance=ExtResource("4_nanex")]
+position = Vector2(898, 132)
+workstation_type = null
+
+[node name="Cubicle9" parent="Cubicles" unique_id=540522001 instance=ExtResource("4_nanex")]
+position = Vector2(126, 235)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle10" parent="Cubicles" unique_id=731786822 instance=ExtResource("4_nanex")]
+position = Vector2(236, 236)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle11" parent="Cubicles" unique_id=1530262707 instance=ExtResource("4_nanex")]
+position = Vector2(348, 237)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle12" parent="Cubicles" unique_id=1177212231 instance=ExtResource("4_nanex")]
+position = Vector2(458, 238)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle13" parent="Cubicles" unique_id=1243025270 instance=ExtResource("4_nanex")]
+position = Vector2(567, 239)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle14" parent="Cubicles" unique_id=322605635 instance=ExtResource("4_nanex")]
+position = Vector2(677, 240)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle15" parent="Cubicles" unique_id=1031454966 instance=ExtResource("4_nanex")]
+position = Vector2(789, 241)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle16" parent="Cubicles" unique_id=1675108763 instance=ExtResource("4_nanex")]
+position = Vector2(899, 242)
+rotation = 3.1415927
+workstation_type = null
+
+[node name="Cubicle17" parent="Cubicles" unique_id=409161525 instance=ExtResource("4_nanex")]
+position = Vector2(238, 391)
+workstation_type = null
+
+[node name="Cubicle18" parent="Cubicles" unique_id=2144503916 instance=ExtResource("4_nanex")]
+position = Vector2(348, 392)
+workstation_type = null
+
+[node name="Cubicle19" parent="Cubicles" unique_id=117811108 instance=ExtResource("4_nanex")]
+position = Vector2(460, 393)
+workstation_type = null
+
+[node name="Cubicle20" parent="Cubicles" unique_id=1505947891 instance=ExtResource("4_nanex")]
+position = Vector2(683, 396)
+workstation_type = null
+
+[node name="Cubicle21" parent="Cubicles" unique_id=716402379 instance=ExtResource("4_nanex")]
+position = Vector2(792, 397)
+workstation_type = null
+
+[node name="Cubicle22" parent="Cubicles" unique_id=1495853639 instance=ExtResource("4_nanex")]
+position = Vector2(902, 398)
+workstation_type = null
+
+[node name="Cubicle23" parent="Cubicles" unique_id=1282119932 instance=ExtResource("4_nanex")]
+position = Vector2(240, 502)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle24" parent="Cubicles" unique_id=2145271200 instance=ExtResource("4_nanex")]
+position = Vector2(350, 503)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle25" parent="Cubicles" unique_id=1733886886 instance=ExtResource("4_nanex")]
+position = Vector2(462, 504)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle26" parent="Cubicles" unique_id=1952221058 instance=ExtResource("4_nanex")]
+position = Vector2(572, 505)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle27" parent="Cubicles" unique_id=797237107 instance=ExtResource("4_nanex")]
+position = Vector2(681, 506)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle28" parent="Cubicles" unique_id=1713043366 instance=ExtResource("4_nanex")]
+position = Vector2(791, 507)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle29" parent="Cubicles" unique_id=575183725 instance=ExtResource("4_nanex")]
+position = Vector2(903, 508)
+rotation = -3.1415925
+workstation_type = null
+
+[node name="Cubicle30" parent="Cubicles" unique_id=1747791213 instance=ExtResource("4_nanex")]
+position = Vector2(1078, 353)
+rotation = -1.5707964
+workstation_type = null
+
+[node name="Cubicle31" parent="Cubicles" unique_id=1119934679 instance=ExtResource("4_nanex")]
+position = Vector2(1078, 465)
+rotation = -1.5707964
+workstation_type = null
+
+[node name="Cubicle32" parent="Cubicles" unique_id=1105694804 instance=ExtResource("4_nanex")]
+position = Vector2(1079, 577)
+rotation = -1.5707964
+workstation_type = null
+
+[node name="PrinterStation" type="Node" parent="." unique_id=431368765]
+
+[node name="Table" parent="PrinterStation" unique_id=1469761516 instance=ExtResource("8_sf0ao")]
+position = Vector2(605, 407)
+rotation = 1.5707964
+
+[node name="Printer" parent="PrinterStation" unique_id=45217071 instance=ExtResource("9_b6q11")]
+position = Vector2(600, 425)
+rotation = 1.5707964
+
+[node name="Cabinet" parent="PrinterStation" unique_id=164574680 instance=ExtResource("10_b6q11")]
+position = Vector2(532, 432)
+rotation = -1.5707964
+
+[node name="Node" type="Node" parent="." unique_id=1032753371]
+
+[node name="Plant1" parent="Node" unique_id=1465719299 instance=ExtResource("11_y3s53")]
+position = Vector2(1121, 283)
+
+[node name="Plant2" parent="Node" unique_id=312294875 instance=ExtResource("12_p8n5g")]
+position = Vector2(26, 29)
+
+[node name="Plant3" parent="Node" unique_id=412067358 instance=ExtResource("13_yexkw")]
+position = Vector2(169, 397)

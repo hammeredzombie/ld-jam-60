@@ -1,18 +1,21 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c05rij35wm17l"]
 
+[ext_resource type="Script" uid="uid://cjkws1p5gq0vl" path="res://scenes/office/usb.gd" id="1_qyt2y"]
 [ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="1_usb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usb"]
 size = Vector2(3.15, 6.3)
 
-[node name="Usb" type="Node2D"]
+[node name="Usb" type="Node2D" unique_id=1144851240]
+script = ExtResource("1_qyt2y")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
+[node name="Area2D" type="Area2D" parent="." unique_id=27321177]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=520527933]
 shape = SubResource("RectangleShape2D_usb")
 
-[node name="Usb" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986572903]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_usb")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -1,17 +1,27 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bta6k3xshp5nv"]
 
 [ext_resource type="Texture2D" uid="uid://c01wux33k0b1g" path="res://assets/png/lamp.png" id="1_lamp"]
+[ext_resource type="Script" uid="uid://lk3dru06namw" path="res://scenes/office/lamp.gd" id="1_vxg0e"]
+[ext_resource type="Texture2D" uid="uid://c5uyoe7adej" path="res://assets/png/lamp_light.png" id="2_2qi44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lamp"]
 size = Vector2(18.45, 11.25)
 
-[node name="Lamp" type="Node2D"]
+[node name="Lamp" type="Node2D" unique_id=106318847]
+script = ExtResource("1_vxg0e")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=2083651279]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=935073477]
 shape = SubResource("RectangleShape2D_lamp")
 
-[node name="Lamp" type="Sprite2D" parent="StaticBody2D"]
+[node name="Lamp" type="Sprite2D" parent="." unique_id=2114989827]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_lamp")
+
+[node name="LampLight" type="Sprite2D" parent="." unique_id=2128526915]
+position = Vector2(-4, 0.5)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_2qi44")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
