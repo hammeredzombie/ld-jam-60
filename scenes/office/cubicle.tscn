@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c05rij35wm17l" path="res://scenes/office/usb.tscn" id="12_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://bgm5ojio4arvl" path="res://assets/png/computer_laptop_glow.png" id="12_yexf1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
+[ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/office/cabinet.tscn" id="13_yi722"]
+[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/office/paper.tscn" id="14_iw6we"]
 
 [node name="Cubicle" type="Node2D" unique_id=1329360434]
 script = ExtResource("1_i1aae")
@@ -33,7 +35,8 @@ rotation = -1.288053
 position = Vector2(35, 38)
 
 [node name="PictureFrame" type="Sprite2D" parent="." unique_id=1687545458]
-position = Vector2(40, -38)
+position = Vector2(-38, 36)
+rotation = 2.4713862
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yi722")
 
@@ -73,3 +76,12 @@ texture = ExtResource("11_80p35")
 position = Vector2(41, 4)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yexf1")
+
+[node name="FileOrganizer" type="Sprite2D" parent="." unique_id=821095251]
+position = Vector2(38.000004, -35)
+rotation = -1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("13_iw6we")
+
+[node name="Paper" parent="." unique_id=1359343595 instance=ExtResource("14_iw6we")]
+position = Vector2(39, -35)
