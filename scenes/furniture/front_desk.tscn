@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmlmes8qejf6o"]
 
 [ext_resource type="Texture2D" uid="uid://bk8u4oqf4srp" path="res://assets/png/front_desk.png" id="1_front"]
-[ext_resource type="PackedScene" path="res://scenes/office/chair.tscn" id="2_sehb4"]
+[ext_resource type="PackedScene" uid="uid://bkyh7766aiinr" path="res://scenes/furniture/chair.tscn" id="2_sehb4"]
 
 [node name="FrontDesk" type="Node2D" unique_id=515620313]
 

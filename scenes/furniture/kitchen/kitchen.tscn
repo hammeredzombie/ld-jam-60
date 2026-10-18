@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b6ethu0rc0lwu"]
 
-[ext_resource type="Script" uid="uid://c2ukt5wdbeeva" path="res://scenes/kitchen/kitchen.gd" id="1_hwcho"]
+[ext_resource type="Script" uid="uid://c2ukt5wdbeeva" path="res://scenes/furniture/kitchen/kitchen.gd" id="1_hwcho"]
 [ext_resource type="Texture2D" uid="uid://chaavboerxe8y" path="res://assets/png/kitchen_cabinet.png" id="2_8xxd6"]
 [ext_resource type="Texture2D" uid="uid://kl7j1ae77flm" path="res://assets/png/kitchen_cabinet_drawer.png" id="3_a4owj"]
 [ext_resource type="Texture2D" uid="uid://dq2vdw8aia456" path="res://assets/png/kitchen_coffee_maker.png" id="4_lmija"]
-[ext_resource type="PackedScene" uid="uid://47vbpmleg252" path="res://scenes/kitchen/water_cooler.tscn" id="5_yi3jr"]
+[ext_resource type="PackedScene" uid="uid://47vbpmleg252" path="res://scenes/furniture/kitchen/water_cooler.tscn" id="5_yi3jr"]
 [ext_resource type="Texture2D" uid="uid://p8eh3vobpe1l" path="res://assets/png/coffee.png" id="7_lmija"]
 [ext_resource type="Texture2D" uid="uid://cpwu2yl25vjln" path="res://assets/png/kitchen_fridge.png" id="8_lmija"]
 [ext_resource type="Texture2D" uid="uid://dojtcut6sp7g4" path="res://assets/png/kitchen_plate.png" id="8_m0td3"]

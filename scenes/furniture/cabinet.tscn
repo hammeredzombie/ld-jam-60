@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://th4wqpxdx0ak"]
 
-[ext_resource type="Script" uid="uid://c1axspsehclv2" path="res://scenes/office/cabinet.gd" id="1_bncgx"]
+[ext_resource type="Script" uid="uid://c1axspsehclv2" path="res://scenes/furniture/cabinet.gd" id="1_bncgx"]
 [ext_resource type="Texture2D" uid="uid://dfl34voobyncw" path="res://assets/png/cabinet.png" id="1_cabin"]
 [ext_resource type="Texture2D" uid="uid://lnbpgduiqu3n" path="res://assets/png/cabinet_drawer.png" id="2_q8wol"]
 

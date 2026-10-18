@@ -1,19 +1,16 @@
 [gd_scene format=3 uid="uid://dsmn3xim38ian"]
 
-[ext_resource type="Script" uid="uid://bp0uhdikklhnx" path="res://scenes/office/cubicle.gd" id="1_i1aae"]
+[ext_resource type="Script" uid="uid://bp0uhdikklhnx" path="res://scenes/furniture/cubicle.gd" id="1_i1aae"]
 [ext_resource type="Texture2D" uid="uid://b4m8410qbp2ur" path="res://assets/png/cubicle.png" id="1_xs06v"]
-[ext_resource type="PackedScene" uid="uid://bkyh7766aiinr" path="res://scenes/office/chair.tscn" id="3_kooeq"]
+[ext_resource type="PackedScene" uid="uid://bkyh7766aiinr" path="res://scenes/furniture/chair.tscn" id="3_kooeq"]
 [ext_resource type="Texture2D" uid="uid://bvw2164x4w7ye" path="res://assets/png/computer_desktop.png" id="8_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://ovywl6nnrxod" path="res://assets/png/computer_desktop_glow.png" id="9_yi722"]
-[ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/office/lamp.tscn" id="10_0cgw3"]
+[ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/furniture/lamp.tscn" id="10_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="10_iw6we"]
-[ext_resource type="Texture2D" uid="uid://b32g6jfhtohgt" path="res://assets/png/computer_laptop.png" id="11_80p35"]
-[ext_resource type="PackedScene" uid="uid://c05rij35wm17l" path="res://scenes/office/usb.tscn" id="12_0cgw3"]
-[ext_resource type="Texture2D" uid="uid://bgm5ojio4arvl" path="res://assets/png/computer_laptop_glow.png" id="12_yexf1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
 [ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
-[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/office/cabinet.tscn" id="13_yi722"]
-[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/office/paper.tscn" id="14_iw6we"]
+[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="13_yi722"]
+[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/furniture/paper.tscn" id="14_iw6we"]
 
 [node name="Cubicle" type="Node2D" unique_id=1329360434]
 script = ExtResource("1_i1aae")
@@ -34,22 +31,21 @@ rotation = -1.288053
 [node name="Lamp" parent="." unique_id=1070543930 instance=ExtResource("10_0cgw3")]
 position = Vector2(35, 38)
 
-[node name="PictureFrame" type="Sprite2D" parent="." unique_id=1687545458]
+[node name="PictureFrame1" type="Sprite2D" parent="." unique_id=1687545458]
 position = Vector2(-38, 36)
-rotation = 2.4713862
+rotation = 1.9041542
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_yi722")
+
+[node name="PictureFrame2" type="Sprite2D" parent="." unique_id=36869091]
+position = Vector2(46, -10)
+rotation = 0.05235988
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yi722")
 
 [node name="Cabinet" parent="." unique_id=164574680 instance=ExtResource("13_yi722")]
 position = Vector2(-36, -35)
 rotation = 1.5707964
-
-[node name="UsbDesktop" parent="." unique_id=1144851240 instance=ExtResource("12_0cgw3")]
-position = Vector2(-17, 25)
-
-[node name="UsbLaptop" parent="." unique_id=514587139 instance=ExtResource("12_0cgw3")]
-position = Vector2(35, -11)
-rotation = -1.5707964
 
 [node name="Desktop" type="Sprite2D" parent="." unique_id=260274286]
 z_index = -1
@@ -67,16 +63,6 @@ position = Vector2(5, 33)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("9_yi722")
 
-[node name="Laptop" type="Sprite2D" parent="." unique_id=1296387127]
-position = Vector2(34.55, 3.9249992)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("11_80p35")
-
-[node name="LaptopGlow" type="Sprite2D" parent="." unique_id=1369845462]
-position = Vector2(41, 4)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_yexf1")
-
 [node name="FileOrganizer" type="Sprite2D" parent="." unique_id=821095251]
 position = Vector2(38.000004, -35)
 rotation = -1.5707964
@@ -85,3 +71,13 @@ texture = ExtResource("13_iw6we")
 
 [node name="Paper" parent="." unique_id=1359343595 instance=ExtResource("14_iw6we")]
 position = Vector2(39, -35)
+
+[node name="Marker1" type="Marker2D" parent="." unique_id=822908092]
+position = Vector2(-18, 26)
+
+[node name="Marker2" type="Marker2D" parent="." unique_id=1422949022]
+position = Vector2(20, 25)
+
+[node name="Marker3" type="Marker2D" parent="." unique_id=505285247]
+position = Vector2(29, 13)
+rotation = -1.5707964

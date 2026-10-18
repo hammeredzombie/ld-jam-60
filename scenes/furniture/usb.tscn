@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c05rij35wm17l"]
 
-[ext_resource type="Script" uid="uid://cjkws1p5gq0vl" path="res://scenes/office/usb.gd" id="1_qyt2y"]
+[ext_resource type="Script" uid="uid://cjkws1p5gq0vl" path="res://scenes/furniture/usb.gd" id="1_qyt2y"]
 [ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="1_usb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usb"]

@@ -1,22 +1,28 @@
 [gd_scene format=3 uid="uid://dghvxwcbldj47"]
 
 [ext_resource type="Texture2D" uid="uid://b7bsi73yfqfbd" path="res://assets/png/floor.png" id="1_3e7dm"]
-[ext_resource type="Script" uid="uid://bxlygdukbwlyu" path="res://scenes/office/office.gd" id="1_p8n5g"]
+[ext_resource type="Script" uid="uid://bxlygdukbwlyu" path="res://scenes/office.gd" id="1_p8n5g"]
 [ext_resource type="Texture2D" uid="uid://cppd8vcc4yerp" path="res://assets/png/walls.png" id="2_n0wcf"]
 [ext_resource type="Texture2D" uid="uid://kasgb8fu2xs6" path="res://assets/png/door.png" id="3_jwaux"]
-[ext_resource type="PackedScene" uid="uid://dsmn3xim38ian" path="res://scenes/office/cubicle.tscn" id="4_nanex"]
-[ext_resource type="PackedScene" uid="uid://b6ethu0rc0lwu" path="res://scenes/kitchen/kitchen.tscn" id="5_66du1"]
+[ext_resource type="PackedScene" uid="uid://dsmn3xim38ian" path="res://scenes/furniture/cubicle.tscn" id="4_nanex"]
+[ext_resource type="PackedScene" uid="uid://b6ethu0rc0lwu" path="res://scenes/furniture/kitchen/kitchen.tscn" id="5_66du1"]
 [ext_resource type="PackedScene" uid="uid://lr0hrvi625s7" path="res://scenes/player.tscn" id="6_art4y"]
-[ext_resource type="PackedScene" uid="uid://cmlmes8qejf6o" path="res://scenes/office/front_desk.tscn" id="7_8d8gp"]
-[ext_resource type="PackedScene" path="res://scenes/office/table.tscn" id="8_sf0ao"]
-[ext_resource type="PackedScene" path="res://scenes/office/printer.tscn" id="9_b6q11"]
-[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/office/cabinet.tscn" id="10_b6q11"]
-[ext_resource type="PackedScene" path="res://scenes/office/plant_1.tscn" id="11_y3s53"]
-[ext_resource type="PackedScene" path="res://scenes/office/plant_2.tscn" id="12_p8n5g"]
-[ext_resource type="PackedScene" path="res://scenes/office/plant_3.tscn" id="13_yexkw"]
+[ext_resource type="PackedScene" uid="uid://cmlmes8qejf6o" path="res://scenes/furniture/front_desk.tscn" id="7_8d8gp"]
+[ext_resource type="PackedScene" path="res://scenes/furniture/table.tscn" id="8_sf0ao"]
+[ext_resource type="PackedScene" uid="uid://clrxiublmgdi8" path="res://scenes/furniture/printer.tscn" id="9_b6q11"]
+[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="10_b6q11"]
+[ext_resource type="PackedScene" path="res://scenes/furniture/plant_1.tscn" id="11_y3s53"]
+[ext_resource type="PackedScene" path="res://scenes/furniture/plant_2.tscn" id="12_p8n5g"]
+[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/furniture/paper.tscn" id="12_yexkw"]
+[ext_resource type="PackedScene" path="res://scenes/furniture/plant_3.tscn" id="13_yexkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(8, 72)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xoil0"]
+vertices = PackedVector2Array(1126, 624, 23, 624, 23, 26, 1126, 26)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(13, 634, 13, 16, 1136, 16, 1136, 634)])
 
 [node name="Office" type="Node2D" unique_id=461136865]
 script = ExtResource("1_p8n5g")
@@ -56,7 +62,7 @@ rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
 z_index = 1
-position = Vector2(34, 324)
+position = Vector2(549, 386)
 
 [node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]
 position = Vector2(81, 592)
@@ -186,12 +192,16 @@ position = Vector2(605, 407)
 rotation = 1.5707964
 
 [node name="Printer" parent="PrinterStation" unique_id=45217071 instance=ExtResource("9_b6q11")]
-position = Vector2(600, 425)
+position = Vector2(600, 388)
 rotation = 1.5707964
 
 [node name="Cabinet" parent="PrinterStation" unique_id=164574680 instance=ExtResource("10_b6q11")]
 position = Vector2(532, 432)
 rotation = -1.5707964
+
+[node name="Paper" parent="PrinterStation" unique_id=870242606 instance=ExtResource("12_yexkw")]
+position = Vector2(603, 421)
+rotation = 1.5707964
 
 [node name="Node" type="Node" parent="." unique_id=1032753371]
 
@@ -203,3 +213,8 @@ position = Vector2(26, 29)
 
 [node name="Plant3" parent="Node" unique_id=412067358 instance=ExtResource("13_yexkw")]
 position = Vector2(169, 397)
+
+[node name="Coworkers" type="Node" parent="." unique_id=54443251]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=641287893]
+navigation_polygon = SubResource("NavigationPolygon_xoil0")
