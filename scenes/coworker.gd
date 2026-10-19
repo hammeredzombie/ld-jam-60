@@ -7,8 +7,8 @@ enum WorkerState {
 }
 
 const SPEED := 100.0
-const WORK_TIME_MIN := 10
-const WORK_TIME_MAX := 20
+const WORK_TIME_MIN := 20
+const WORK_TIME_MAX := 30
 
 var state: WorkerState = WorkerState.IDLE
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
@@ -16,11 +16,11 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var _Target: Node = null
 @onready var _NavAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var _Timer: Timer = $Timer
-
+@onready var _Sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	rng.randomize()
-
+	_Sprite.self_modulate = Color(rng.randf_range(0, 1), rng.randf_range(0, 1), rng.randf_range(0, 1), 1)
 
 func _physics_process(delta: float) -> void:
 	if _Target == null or state != WorkerState.MOVING:

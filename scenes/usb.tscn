@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c05rij35wm17l"]
 
-[ext_resource type="Script" uid="uid://cjkws1p5gq0vl" path="res://scenes/furniture/usb.gd" id="1_qyt2y"]
+[ext_resource type="Script" uid="uid://cjkws1p5gq0vl" path="res://scenes/usb.gd" id="1_qyt2y"]
 [ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="1_usb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usb"]
-size = Vector2(3.15, 6.3)
+size = Vector2(12, 14)
 
 [node name="Usb" type="Node2D" unique_id=1144851240]
 script = ExtResource("1_qyt2y")
@@ -12,6 +12,7 @@ script = ExtResource("1_qyt2y")
 [node name="Area2D" type="Area2D" parent="." unique_id=27321177]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=520527933]
+position = Vector2(-4.7683716e-07, 2.3841858e-07)
 shape = SubResource("RectangleShape2D_usb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986572903]

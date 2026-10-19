@@ -1,17 +1,22 @@
 [gd_scene format=3 uid="uid://c8ms577l0vohs"]
 
 [ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="1_paper"]
+[ext_resource type="Script" uid="uid://bmkdts7w1un2r" path="res://scenes/paper.gd" id="1_vas6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paper"]
-size = Vector2(12.6, 17.55)
+size = Vector2(18, 22)
 
 [node name="Paper" type="Node2D" unique_id=870242606]
+script = ExtResource("1_vas6c")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=616001730]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1447344759]
+position = Vector2(2.3841858e-07, 0)
 shape = SubResource("RectangleShape2D_paper")
 
 [node name="Paper" type="Sprite2D" parent="Area2D" unique_id=1746487241]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_paper")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

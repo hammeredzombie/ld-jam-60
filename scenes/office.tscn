@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="10_b6q11"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_1.tscn" id="11_y3s53"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_2.tscn" id="12_p8n5g"]
-[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/furniture/paper.tscn" id="12_yexkw"]
+[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/paper.tscn" id="12_yexkw"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_3.tscn" id="13_yexkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
@@ -221,3 +221,5 @@ position = Vector2(613, 352)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=641287893]
 navigation_polygon = SubResource("NavigationPolygon_xoil0")
+
+[node name="Timer" type="Timer" parent="." unique_id=1428303453]

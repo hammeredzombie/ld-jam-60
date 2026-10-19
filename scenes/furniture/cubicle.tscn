@@ -7,10 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://ovywl6nnrxod" path="res://assets/png/computer_desktop_glow.png" id="9_yi722"]
 [ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/furniture/lamp.tscn" id="10_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="10_iw6we"]
+[ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="11_y22sw"]
+[ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="12_uu6i1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
 [ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="13_yi722"]
-[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/furniture/paper.tscn" id="14_iw6we"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
+size = Vector2(26, 8)
 
 [node name="Cubicle" type="Node2D" unique_id=1329360434]
 script = ExtResource("1_i1aae")
@@ -68,9 +72,6 @@ rotation = -1.5707964
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("13_iw6we")
 
-[node name="Paper" parent="." unique_id=1359343595 instance=ExtResource("14_iw6we")]
-position = Vector2(39, -35)
-
 [node name="Marker1" type="Marker2D" parent="." unique_id=822908092]
 position = Vector2(-18, 26)
 
@@ -80,3 +81,23 @@ position = Vector2(20, 25)
 [node name="Marker3" type="Marker2D" parent="." unique_id=505285247]
 position = Vector2(29, 13)
 rotation = -1.5707964
+
+[node name="ComputerInputArea" type="Area2D" parent="." unique_id=1067636675]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerInputArea" unique_id=1139976996]
+position = Vector2(2, 25)
+shape = SubResource("RectangleShape2D_l502e")
+
+[node name="Paper" type="Sprite2D" parent="." unique_id=688069323]
+visible = false
+position = Vector2(39, -35)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_y22sw")
+
+[node name="Usb" type="Sprite2D" parent="." unique_id=978942170]
+visible = false
+position = Vector2(32, -10)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_uu6i1")
+
+[connection signal="input_event" from="ComputerInputArea" to="." method="_on_computer_input_area_input_event"]

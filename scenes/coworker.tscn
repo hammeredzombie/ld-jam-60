@@ -9,10 +9,6 @@ radius = 11.0
 [node name="Coworker" type="CharacterBody2D" unique_id=503286047]
 script = ExtResource("1_xoil0")
 
-[node name="Player" type="Sprite2D" parent="." unique_id=245292066]
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_5uxwa")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236876052]
 shape = SubResource("CircleShape2D_l502e")
 
@@ -22,5 +18,9 @@ debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=1451507637]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=245292066]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_5uxwa")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

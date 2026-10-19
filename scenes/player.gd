@@ -4,12 +4,14 @@ const CAMERA_ZOOM_MIN = 2.0
 const CAMERA_ZOOM_MAX = 5.0
 const CAMERA_ZOOM_STEP = 0.2
 
-
 const RUN_SPEED = 200.0
 const WALK_SPEED = 100.0
 
 @onready var _Camera := $Camera2D
+@onready var _Paper: Sprite2D = $Paper
+@onready var _Usb: Sprite2D = $Usb
 
+var holding_item: String = ''
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -25,7 +27,11 @@ func _input(event: InputEvent) -> void:
 			_Camera.zoom.y = clamp(_Camera.zoom.y, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
 
 
-func _physics_process(delta: float) -> void:
+func _ready() -> void:
+	Global.document_picked_up.connect(_on_document_picked_up)
+	Global.usb_picked_up.connect(_on_usb_picked_up)
+
+func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("left", "right", "up", "down")
 	var sprinting := Input.is_action_pressed("sprint")
 	var speed = RUN_SPEED if sprinting else WALK_SPEED
@@ -37,3 +43,26 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
+func _on_document_picked_up(cubicle: Node) -> void:
+	if holding_item != '':
+		return
+	holding_item = 'paper'
+	_Paper.show()
+	print(cubicle.name)
+	cubicle.on_document_picked_up()
+
+
+func _on_usb_picked_up(cubicle: Node) -> void:
+	if holding_item != '':
+		return
+	holding_item = 'usb'
+	_Usb.show()
+	cubicle.on_usb_picked_up()
+
+
+func _item_dropped() -> void:
+	Global.item_dropped.emit(holding_item)
+	holding_item = ''
+	_Paper.hide()
+	_Usb.hide()
