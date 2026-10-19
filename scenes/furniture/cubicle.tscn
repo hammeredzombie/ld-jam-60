@@ -16,6 +16,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(26, 8)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thumt"]
+size = Vector2(25, 25)
+
 [node name="Cubicle" type="Node2D" unique_id=1329360434]
 script = ExtResource("1_i1aae")
 
@@ -99,5 +102,12 @@ visible = false
 position = Vector2(32, -10)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_uu6i1")
+
+[node name="CollectSecret" type="Area2D" parent="." unique_id=50805118]
+position = Vector2(39, -35)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectSecret" unique_id=507463488]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_thumt")
 
 [connection signal="input_event" from="ComputerInputArea" to="." method="_on_computer_input_area_input_event"]

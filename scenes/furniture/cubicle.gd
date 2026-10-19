@@ -77,6 +77,8 @@ func _on_computer_input_area_input_event(_viewport: Node, event: InputEvent, _sh
 
 
 func _on_item_dropped(item: String) -> void:
+	if _Worker is Player and item == "paper_printed":
+		Global.secret_collected.emit()
 	if item == "paper":
 		_PaperSprite.show()
 	elif item == "usb":

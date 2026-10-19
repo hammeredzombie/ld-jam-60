@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://lr0hrvi625s7" path="res://scenes/player.tscn" id="6_art4y"]
 [ext_resource type="PackedScene" uid="uid://cmlmes8qejf6o" path="res://scenes/furniture/front_desk.tscn" id="7_8d8gp"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/table.tscn" id="8_sf0ao"]
-[ext_resource type="PackedScene" uid="uid://clrxiublmgdi8" path="res://scenes/furniture/printer.tscn" id="9_b6q11"]
+[ext_resource type="PackedScene" uid="uid://clrxiublmgdi8" path="res://scenes/printer.tscn" id="9_b6q11"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="10_b6q11"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_1.tscn" id="11_y3s53"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_2.tscn" id="12_p8n5g"]
@@ -62,7 +62,7 @@ rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
 z_index = 1
-position = Vector2(31, 327)
+position = Vector2(555, 391)
 rotation = 3.1415927
 
 [node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]

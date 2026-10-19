@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://clrxiublmgdi8"]
+
+[ext_resource type="Script" uid="uid://d1p8yexi7a3v0" path="res://scenes/printer.gd" id="1_jyu6j"]
+[ext_resource type="Texture2D" uid="uid://hi84ycnmxg2m" path="res://assets/png/printer.png" id="1_mu7cj"]
+[ext_resource type="Texture2D" uid="uid://bfgo1qvxx0834" path="res://assets/png/printer_light_green.png" id="2_ye4w7"]
+[ext_resource type="Texture2D" uid="uid://dhv7ejaryhod7" path="res://assets/png/printer_light_red.png" id="3_jyu6j"]
+[ext_resource type="Texture2D" uid="uid://yykkahlvydho" path="res://assets/png/printer_lights.png" id="4_v3a1h"]
+[ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="5_ye4w7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y61vb"]
+line_spacing = 1.0
+font_size = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
+size = Vector2(36, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thumt"]
+size = Vector2(31, 19)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyu6j"]
+load_path = "res://.godot/imported/paper_printed.png-bc5aec0b91e3c4991cd5d86bd776c29f.ctex"
+
+[node name="Printer" type="Node2D" unique_id=1613045614]
+script = ExtResource("1_jyu6j")
+
+[node name="Printer" type="Sprite2D" parent="." unique_id=1104246987]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_mu7cj")
+
+[node name="LightGreen" type="Sprite2D" parent="." unique_id=78791389]
+position = Vector2(3, 7)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_ye4w7")
+
+[node name="LightRed" type="Sprite2D" parent="." unique_id=1752511286]
+position = Vector2(7, 7)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_jyu6j")
+
+[node name="LightCover" type="Sprite2D" parent="." unique_id=1765696552]
+position = Vector2(5, 7)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("4_v3a1h")
+
+[node name="Control" type="Control" parent="." unique_id=1833502142]
+layout_mode = 3
+anchor_left = -0.007
+anchor_top = 0.011000001
+anchor_right = -0.007
+anchor_bottom = 0.011000001
+offset_left = -15.0
+offset_top = 4.0
+offset_right = -1.0
+offset_bottom = 10.0
+
+[node name="Error" type="Label" parent="Control" unique_id=1741421355]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 10.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "000"
+label_settings = SubResource("LabelSettings_y61vb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LoadPaper" type="Area2D" parent="." unique_id=2110258351]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoadPaper" unique_id=623841259]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_l502e")
+
+[node name="CollectDocument" type="Area2D" parent="." unique_id=674005081]
+position = Vector2(1, 22)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectDocument" unique_id=941574699]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_thumt")
+
+[node name="PaperLoaded" type="Sprite2D" parent="." unique_id=772837050]
+visible = false
+z_index = 1
+position = Vector2(1, -22)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("5_ye4w7")
+
+[node name="PaperPrinted" type="Sprite2D" parent="." unique_id=1896167870]
+visible = false
+position = Vector2(1, 20.999992)
+scale = Vector2(0.45, 0.45)
+texture = SubResource("CompressedTexture2D_jyu6j")
+
+[connection signal="input_event" from="CollectDocument" to="." method="_on_collect_document_input_event"]

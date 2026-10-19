@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 const CAMERA_ZOOM_MIN = 2.0
 const CAMERA_ZOOM_MAX = 5.0
@@ -44,13 +45,17 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func _on_document_picked_up(cubicle: Node) -> void:
+func _on_document_picked_up(station: Node) -> void:
 	if holding_item != '':
 		return
-	holding_item = 'paper'
+	if station is Printer:
+		holding_item = 'paper_printed'
+	else:
+		holding_item = 'paper'
+
 	_Paper.show()
-	print(cubicle.name)
-	cubicle.on_document_picked_up()
+	print(station.name)
+	station.on_document_picked_up()
 
 
 func _on_usb_picked_up(cubicle: Node) -> void:

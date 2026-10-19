@@ -2,10 +2,6 @@ extends Node2D
 class_name Usb
 
 
-# func _ready() -> void:
-# 	Global.item_picked_up.connect(_on_item_picked_up)
-
-
 func _process(_delta: float) -> void:
 	pass
 
@@ -14,7 +10,4 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Global.usb_picked_up.emit(self.get_parent())
 
-
-# func _on_item_picked_up() -> void:
-# 	queue_free()
 
