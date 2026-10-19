@@ -9,37 +9,47 @@ script = ExtResource("1_o5qli")
 
 [node name="Office" parent="." unique_id=461136865 instance=ExtResource("2_0wfyh")]
 
-[node name="Control" type="Control" parent="." unique_id=1067970579]
-z_index = 1
-layout_mode = 3
+[node name="Tutorial" type="CanvasLayer" parent="." unique_id=1067970579]
+process_mode = 3
+layer = 10
+
+[node name="Backdrop" type="ColorRect" parent="Tutorial" unique_id=1849264501]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -219.0
-offset_top = 241.0
-offset_right = -173.0
-offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 0
+color = Color(0, 0, 0, 1)
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=2110126213]
+[node name="Video" type="VideoStreamPlayer" parent="Tutorial" unique_id=2110126213]
+process_mode = 3
+texture_filter = 2
 layout_mode = 0
-offset_left = 126.00001
-offset_top = -1.0000153
-offset_right = 924.0
-offset_bottom = 719.0
-scale = Vector2(0.32000023, 0.24000022)
+offset_right = 798.0
+offset_bottom = 720.0
+mouse_filter = 2
 stream = ExtResource("3_sugp2")
 autoplay = true
+expand = true
+buffering_msec = 1000
 
-[node name="Button" type="Button" parent="Control" unique_id=1633044030]
+[node name="Start" type="Button" parent="Tutorial" unique_id=1633044030]
 visible = false
-layout_mode = 0
-offset_left = 256.0
-offset_top = 73.0
-offset_right = 335.0
-offset_bottom = 104.0
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start"
 
-[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="finished" from="Tutorial/Video" to="." method="_on_video_stream_player_finished"]
