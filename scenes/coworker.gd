@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Coworker
 
 enum WorkerState {
 	IDLE,
@@ -7,8 +8,8 @@ enum WorkerState {
 }
 
 const SPEED := 100.0
-const WORK_TIME_MIN := 5
-const WORK_TIME_MAX := 10
+const WORK_TIME_MIN := 3
+const WORK_TIME_MAX := 5
 const ARRIVE_DISTANCE := 40.0
 
 var state: WorkerState = WorkerState.IDLE
@@ -67,3 +68,15 @@ func _on_timer_timeout() -> void:
 	var home := get_parent() as Node2D
 	if home:
 		set_target(home)
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Player and state == WorkerState.MOVING:
+		if _player_is_safe_at_cubicle(body as Player):
+			return
+		Global.lose.emit()
+
+
+func _player_is_safe_at_cubicle(player: Player) -> bool:
+	var cubicle := _Target as Cubicle
+	return cubicle != null and cubicle.is_player and cubicle.contains_point(player.global_position)

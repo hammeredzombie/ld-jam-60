@@ -65,8 +65,7 @@ rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
 z_index = 1
-position = Vector2(45, 328)
-rotation = 3.1415927
+position = Vector2(45, 327)
 
 [node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]
 position = Vector2(81, 592)

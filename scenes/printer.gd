@@ -27,8 +27,6 @@ func _process(_delta: float) -> void:
 
 func on_paper_loaded() -> void:
 	paper_loaded = true
-	_PaperLoaded.position.y = -22
-	_PaperLoaded.scale.y = 0.45
 	_PaperLoaded.show()
 
 
@@ -79,6 +77,7 @@ func _on_job_sent_to_printer(_cubicle: Node) -> void:
 func _on_print_job_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		if jobs > 0 and paper_loaded and not printing:
+			print('print job')
 			printing = true
 			_play_feed_animation()
 		else:

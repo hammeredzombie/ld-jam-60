@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8ms577l0vohs"]
 
-[ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="1_paper"]
 [ext_resource type="Script" uid="uid://bmkdts7w1un2r" path="res://scenes/paper.gd" id="1_vas6c"]
+[ext_resource type="Texture2D" uid="uid://ba2jes0pv4v8a" path="res://assets/png/paper_printed.png" id="2_vas6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_paper"]
 size = Vector2(18, 22)
@@ -17,6 +17,6 @@ shape = SubResource("RectangleShape2D_paper")
 
 [node name="Paper" type="Sprite2D" parent="Area2D" unique_id=1746487241]
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("1_paper")
+texture = ExtResource("2_vas6c")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

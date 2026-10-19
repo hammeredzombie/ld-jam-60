@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/furniture/lamp.tscn" id="10_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="10_iw6we"]
 [ext_resource type="Texture2D" uid="uid://ba2jes0pv4v8a" path="res://assets/png/paper_printed.png" id="11_cp3fa"]
-[ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="11_y22sw"]
-[ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="12_uu6i1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
 [ext_resource type="Texture2D" uid="uid://cqoisig5wxcdp" path="res://assets/png/chair.png" id="13_cp3fa"]
 [ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
@@ -18,7 +16,7 @@
 size = Vector2(32, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thumt"]
-size = Vector2(25, 25)
+size = Vector2(35, 33)
 
 [node name="Cubicle" type="Node2D" unique_id=1329360434]
 script = ExtResource("1_i1aae")
@@ -94,18 +92,6 @@ position = Vector2(38, -35)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("11_cp3fa")
 
-[node name="Paper" type="Sprite2D" parent="." unique_id=688069323]
-visible = false
-position = Vector2(39, -35)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("11_y22sw")
-
-[node name="Usb" type="Sprite2D" parent="." unique_id=978942170]
-visible = false
-position = Vector2(32, -10)
-scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_uu6i1")
-
 [node name="CollectSecret" type="Area2D" parent="." unique_id=50805118]
 position = Vector2(39, -35)
 
@@ -118,6 +104,25 @@ position = Vector2(4, 3)
 rotation = -0.72082096
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("13_cp3fa")
+
+[node name="Label" type="Label" parent="." unique_id=1697873999]
+visible = false
+offset_left = -31.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 13.0
+pivot_offset = Vector2(33, 24.5)
+text = "YOUR 
+CUBICLE"
+
+[node name="PrintSent" type="Label" parent="." unique_id=2115578205]
+visible = false
+offset_left = -32.0
+offset_top = 25.0
+offset_right = 45.0
+offset_bottom = 48.0
+pivot_offset = Vector2(36, 11.5)
+text = "Print Sent"
 
 [connection signal="input_event" from="ComputerInputArea" to="." method="_on_computer_input_area_input_event"]
 [connection signal="input_event" from="CollectSecret" to="." method="_on_collect_secret_input_event"]

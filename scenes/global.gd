@@ -12,3 +12,6 @@ signal item_dropped(item: String)
 signal secret_collected()
 @warning_ignore("unused_signal")
 signal secret_submitted()
+
+@warning_ignore("unused_signal")
+signal lose()

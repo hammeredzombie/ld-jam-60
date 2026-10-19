@@ -1,8 +1,8 @@
 extends Node2D
 
 const COWORKER_SCENE = preload("res://scenes/coworker.tscn")
-const TIMER_MIN_TIME = 10.0
-const TIMER_MAX_TIME = 20.0
+const TIMER_MIN_TIME = 2
+const TIMER_MAX_TIME = 3
 
 const TARGETS := [
 	'PRINTER',
@@ -26,6 +26,7 @@ var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var _Cubicles: Array[Node]
 var active_worker_index: int = 0
 
+
 func _ready() -> void:
 	_bake_navigation()
 	rng.randomize()
@@ -42,10 +43,23 @@ func _ready() -> void:
 			_PlayerCubicle = cubicle
 			cubicle._Worker = _Player
 			cubicle.is_player = true
+			var label := cubicle.get_node("Label") as Label
+			label.pivot_offset = label.size / 2.0
+			label.rotation = -cubicle.rotation
+			label.show()
+			if cubicle._Paper:
+				cubicle._Paper.queue_free()
+				cubicle._Paper = null
+			if cubicle._Usb:
+				cubicle._Usb.queue_free()
+				cubicle._Usb = null
+			cubicle.get_node('PaperPrinted').show()
+
 	_Cubicles.shuffle()
 	if not _Timer.timeout.is_connected(_on_timer_timeout):
 		_Timer.timeout.connect(_on_timer_timeout)
 	_set_worker_target()
+
 
 func _bake_navigation() -> void:
 	var region: NavigationRegion2D = $NavigationRegion2D

@@ -30,34 +30,25 @@ layout_mode = 0
 offset_right = 525.0
 offset_bottom = 181.0
 
-[node name="Welcome1" type="Label" parent="Control" unique_id=506772726]
+[node name="Welcome" type="Label" parent="Control" unique_id=1253234020]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 7.0
-offset_right = 509.0
-offset_bottom = 82.0
-text = "The year is 1999, you work for the software company Outietech.
-Your cubicle is empty waiting to stash company secrets.
-"
-label_settings = SubResource("LabelSettings_l502e")
-
-[node name="Welcome2" type="Label" parent="Control" unique_id=1253234020]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 63.0
-offset_right = 561.0
-offset_bottom = 138.0
-text = "AVOID COWORKERS ON THE MOVE!
-Sneak into their desk and send documents to the printer
-or steal a USB"
+offset_left = 26.0
+offset_top = 20.0
+offset_right = 572.0
+offset_bottom = 147.0
+text = "TO WIN: steal papers, USBs, and print documents from the PC
+YOU LOSE: if you get near a coworker ON THE MOVE
+LEFT CLICK: interact
+SCROLLWHEEL: zoom
+SHIFT: sprint"
 label_settings = SubResource("LabelSettings_l502e")
 
 [node name="Button" type="Button" parent="Control" unique_id=1633044030]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 125.0
-offset_right = 295.0
-offset_bottom = 156.0
+offset_left = 331.0
+offset_top = 126.0
+offset_right = 410.0
+offset_bottom = 157.0
 text = "Start"
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
