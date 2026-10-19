@@ -2,19 +2,20 @@
 
 [ext_resource type="Script" uid="uid://bp0uhdikklhnx" path="res://scenes/furniture/cubicle.gd" id="1_i1aae"]
 [ext_resource type="Texture2D" uid="uid://b4m8410qbp2ur" path="res://assets/png/cubicle.png" id="1_xs06v"]
-[ext_resource type="PackedScene" uid="uid://bkyh7766aiinr" path="res://scenes/furniture/chair.tscn" id="3_kooeq"]
 [ext_resource type="Texture2D" uid="uid://bvw2164x4w7ye" path="res://assets/png/computer_desktop.png" id="8_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://ovywl6nnrxod" path="res://assets/png/computer_desktop_glow.png" id="9_yi722"]
 [ext_resource type="PackedScene" uid="uid://bta6k3xshp5nv" path="res://scenes/furniture/lamp.tscn" id="10_0cgw3"]
 [ext_resource type="Texture2D" uid="uid://bsdr702xq4ayo" path="res://assets/png/computer_desktop_monitor.png" id="10_iw6we"]
+[ext_resource type="Texture2D" uid="uid://ba2jes0pv4v8a" path="res://assets/png/paper_printed.png" id="11_cp3fa"]
 [ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="11_y22sw"]
 [ext_resource type="Texture2D" uid="uid://d332bjb80jjjj" path="res://assets/png/usb.png" id="12_uu6i1"]
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
+[ext_resource type="Texture2D" uid="uid://cqoisig5wxcdp" path="res://assets/png/chair.png" id="13_cp3fa"]
 [ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="13_yi722"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
-size = Vector2(26, 8)
+size = Vector2(32, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thumt"]
 size = Vector2(25, 25)
@@ -30,10 +31,6 @@ polygon = PackedVector2Array(-56, -56, -32, -56, -32, -52, -52, -52, -52, 18, 23
 [node name="Cubicle" type="Sprite2D" parent="StaticBody2D" unique_id=940854282]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_xs06v")
-
-[node name="Chair" parent="." unique_id=914924361 instance=ExtResource("3_kooeq")]
-position = Vector2(2, 5)
-rotation = -1.288053
 
 [node name="Lamp" parent="." unique_id=1070543930 instance=ExtResource("10_0cgw3")]
 position = Vector2(35, 38)
@@ -88,8 +85,14 @@ rotation = -1.5707964
 [node name="ComputerInputArea" type="Area2D" parent="." unique_id=1067636675]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ComputerInputArea" unique_id=1139976996]
-position = Vector2(2, 25)
+position = Vector2(3, 35.5)
 shape = SubResource("RectangleShape2D_l502e")
+
+[node name="PaperPrinted" type="Sprite2D" parent="." unique_id=1184860618]
+visible = false
+position = Vector2(38, -35)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_cp3fa")
 
 [node name="Paper" type="Sprite2D" parent="." unique_id=688069323]
 visible = false
@@ -110,4 +113,11 @@ position = Vector2(39, -35)
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_thumt")
 
+[node name="Chair" type="Sprite2D" parent="." unique_id=373835683]
+position = Vector2(4, 3)
+rotation = -0.72082096
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("13_cp3fa")
+
 [connection signal="input_event" from="ComputerInputArea" to="." method="_on_computer_input_area_input_event"]
+[connection signal="input_event" from="CollectSecret" to="." method="_on_collect_secret_input_event"]

@@ -1,14 +1,9 @@
 extends Node2D
 class_name Cubicle
 
-var USB_SCENE = preload("res://scenes/usb.tscn")
-var PAPER_SCENE = preload("res://scenes/paper.tscn")
+const USB_SCENE = preload("res://scenes/usb.tscn")
+const PAPER_SCENE = preload("res://scenes/paper.tscn")
 
-var has_usb: bool
-var has_document: bool
-var computer_on: bool = false
-var _Worker: CharacterBody2D = null
-var is_player: bool = false
 
 @onready var _MonitorGlow: Sprite2D = $MonitorGlow
 @onready var _Lamp: Node2D = $Lamp
@@ -16,10 +11,15 @@ var is_player: bool = false
 @onready var _PictureFrame2: Sprite2D = $PictureFrame2
 @onready var _PaperSprite: Sprite2D = $Paper
 @onready var _UsbSprite: Sprite2D = $Usb
+var _Worker: CharacterBody2D = null
 
 var _Usb: Node2D = null
 var _Paper: Node2D = null
 
+var has_usb: bool
+var has_document: bool
+var computer_on: bool = false
+var is_player: bool = false
 
 func _ready() -> void:
 	var rng = RandomNumberGenerator.new()
@@ -71,18 +71,18 @@ func spawn_worker(worker: CharacterBody2D) -> void:
 
 
 func _on_computer_input_area_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if computer_on:
-		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
-			emit_signal("job_sent_to_printer", self)
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		if computer_on:
+				Global.job_sent_to_printer.emit(self)
+		else:
+			computer_on = true
+			_MonitorGlow.show()
 
 
 func _on_item_dropped(item: String) -> void:
-	if _Worker is Player and item == "paper_printed":
-		Global.secret_collected.emit()
-	if item == "paper":
-		_PaperSprite.show()
-	elif item == "usb":
-		_UsbSprite.show()
+	if _Worker is Player:
+		if item == "paper_printed" or item == "usb":
+			Global.secret_collected.emit()
 
 
 func on_document_picked_up() -> void:
@@ -91,3 +91,9 @@ func on_document_picked_up() -> void:
 
 func on_usb_picked_up() -> void:
 	_Usb.queue_free()
+
+
+func _on_collect_secret_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
+		if _Worker is Player:
+			Global.secret_submitted.emit()

@@ -7,47 +7,63 @@ enum WorkerState {
 }
 
 const SPEED := 100.0
-const WORK_TIME_MIN := 20
-const WORK_TIME_MAX := 30
+const WORK_TIME_MIN := 5
+const WORK_TIME_MAX := 10
+const ARRIVE_DISTANCE := 40.0
 
 var state: WorkerState = WorkerState.IDLE
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-var _Target: Node = null
+var _Target: Node2D = null
 @onready var _NavAgent: NavigationAgent2D = $NavigationAgent2D
 @onready var _Timer: Timer = $Timer
 @onready var _Sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	rng.randomize()
+	_Timer.one_shot = true
 	_Sprite.self_modulate = Color(rng.randf_range(0, 1), rng.randf_range(0, 1), rng.randf_range(0, 1), 1)
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if _Target == null or state != WorkerState.MOVING:
 		return
 
-	if !_NavAgent.is_target_reached():
-		var nav_point_direction = to_local(_NavAgent.get_next_path_position()).normalized()
-		velocity = nav_point_direction * SPEED * delta
-		move_and_slide()
-	else:
+	if NavigationServer2D.map_get_iteration_id(_NavAgent.get_navigation_map()) == 0:
+		return
+
+	if _NavAgent.is_navigation_finished():
+		target_reached()
+		return
+
+	var next_path_position := _NavAgent.get_next_path_position()
+	var direction := global_position.direction_to(next_path_position)
+	if direction.is_zero_approx():
+		return
+
+	velocity = direction * SPEED
+	move_and_slide()
+	if get_slide_collision_count() > 0 and global_position.distance_to(_NavAgent.target_position) <= ARRIVE_DISTANCE:
 		target_reached()
 
 
-func set_target(target: Node) -> void:
+func set_target(target: Node2D) -> void:
+	_Timer.stop()
 	_Target = target
-	_NavAgent.target_position = _Target.position
+	_NavAgent.target_position = target.global_position
 	state = WorkerState.MOVING
 
 
 func target_reached() -> void:
-	if _Target.is_ancestor_of(self):
+	velocity = Vector2.ZERO
+	if _Target != null and _Target.is_ancestor_of(self):
 		state = WorkerState.IDLE
 		_Target = null
 	else:
 		state = WorkerState.WORKING
-		_Timer.start(rng.randi_range(WORK_TIME_MIN, WORK_TIME_MAX))
+		_Timer.start(rng.randf_range(WORK_TIME_MIN, WORK_TIME_MAX))
 
 
 func _on_timer_timeout() -> void:
-	set_target(get_parent())
+	var home := get_parent() as Node2D
+	if home:
+		set_target(home)

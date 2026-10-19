@@ -10,4 +10,5 @@ signal job_sent_to_printer(cubicle: Node)
 signal item_dropped(item: String)
 @warning_ignore("unused_signal")
 signal secret_collected()
-
+@warning_ignore("unused_signal")
+signal secret_submitted()

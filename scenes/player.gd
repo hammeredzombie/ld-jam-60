@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const CAMERA_ZOOM_MIN = 2.0
+const CAMERA_ZOOM_MIN = 0.5
 const CAMERA_ZOOM_MAX = 5.0
 const CAMERA_ZOOM_STEP = 0.2
 
@@ -11,6 +11,7 @@ const WALK_SPEED = 100.0
 @onready var _Camera := $Camera2D
 @onready var _Paper: Sprite2D = $Paper
 @onready var _Usb: Sprite2D = $Usb
+@onready var _PaperPrinted: Sprite2D = $PaperPrinted
 
 var holding_item: String = ''
 
@@ -31,6 +32,7 @@ func _input(event: InputEvent) -> void:
 func _ready() -> void:
 	Global.document_picked_up.connect(_on_document_picked_up)
 	Global.usb_picked_up.connect(_on_usb_picked_up)
+	Global.secret_submitted.connect(_on_secret_submitted)
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("left", "right", "up", "down")
@@ -49,12 +51,13 @@ func _on_document_picked_up(station: Node) -> void:
 	if holding_item != '':
 		return
 	if station is Printer:
+		print("paper_printed")
 		holding_item = 'paper_printed'
+		_PaperPrinted.show()
 	else:
+		print("paper")
 		holding_item = 'paper'
-
-	_Paper.show()
-	print(station.name)
+		_Paper.show()
 	station.on_document_picked_up()
 
 
@@ -71,3 +74,8 @@ func _item_dropped() -> void:
 	holding_item = ''
 	_Paper.hide()
 	_Usb.hide()
+	_PaperPrinted.hide()
+
+
+func _on_secret_submitted() -> void:
+	_item_dropped()

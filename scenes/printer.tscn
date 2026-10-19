@@ -20,6 +20,9 @@ size = Vector2(31, 19)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jyu6j"]
 load_path = "res://.godot/imported/paper_printed.png-bc5aec0b91e3c4991cd5d86bd776c29f.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yp4wb"]
+size = Vector2(6, 8)
+
 [node name="Printer" type="Node2D" unique_id=1613045614]
 script = ExtResource("1_jyu6j")
 
@@ -53,7 +56,7 @@ offset_top = 4.0
 offset_right = -1.0
 offset_bottom = 10.0
 
-[node name="Error" type="Label" parent="Control" unique_id=1741421355]
+[node name="Label" type="Label" parent="Control" unique_id=1741421355]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -66,7 +69,7 @@ offset_right = 10.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "000"
+text = "0"
 label_settings = SubResource("LabelSettings_y61vb")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -98,4 +101,11 @@ position = Vector2(1, 20.999992)
 scale = Vector2(0.45, 0.45)
 texture = SubResource("CompressedTexture2D_jyu6j")
 
+[node name="PrintJob" type="Area2D" parent="." unique_id=189585228]
+position = Vector2(13, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrintJob" unique_id=1475131731]
+shape = SubResource("RectangleShape2D_yp4wb")
+
 [connection signal="input_event" from="CollectDocument" to="." method="_on_collect_document_input_event"]
+[connection signal="input_event" from="PrintJob" to="." method="_on_print_job_input_event"]

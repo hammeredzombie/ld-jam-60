@@ -12,12 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://clrxiublmgdi8" path="res://scenes/printer.tscn" id="9_b6q11"]
 [ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="10_b6q11"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_1.tscn" id="11_y3s53"]
+[ext_resource type="Texture2D" uid="uid://dfg0vqr0gf3b3" path="res://assets/png/paper.png" id="12_k578b"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_2.tscn" id="12_p8n5g"]
-[ext_resource type="PackedScene" uid="uid://c8ms577l0vohs" path="res://scenes/paper.tscn" id="12_yexkw"]
 [ext_resource type="PackedScene" path="res://scenes/furniture/plant_3.tscn" id="13_yexkw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(8, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thumt"]
+size = Vector2(31, 28)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_xoil0"]
 vertices = PackedVector2Array(1126, 624, 23, 624, 23, 26, 1126, 26)
@@ -62,7 +65,7 @@ rotation = 1.5707964
 
 [node name="Player" parent="." unique_id=815500484 instance=ExtResource("6_art4y")]
 z_index = 1
-position = Vector2(555, 391)
+position = Vector2(45, 328)
 rotation = 3.1415927
 
 [node name="FrontDesk" parent="." unique_id=1030263491 instance=ExtResource("7_8d8gp")]
@@ -199,9 +202,30 @@ rotation = 1.5707964
 position = Vector2(532, 432)
 rotation = -1.5707964
 
-[node name="Paper" parent="PrinterStation" unique_id=870242606 instance=ExtResource("12_yexkw")]
-position = Vector2(603, 421)
+[node name="LoadPaper" type="Area2D" parent="PrinterStation" unique_id=971506502]
+position = Vector2(606, 428)
+
+[node name="Sprite2D" type="Sprite2D" parent="PrinterStation/LoadPaper" unique_id=1241504204]
+position = Vector2(0, -5)
 rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_k578b")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PrinterStation/LoadPaper" unique_id=839797655]
+position = Vector2(1, -4)
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_k578b")
+
+[node name="Sprite2D3" type="Sprite2D" parent="PrinterStation/LoadPaper" unique_id=164734722]
+position = Vector2(2, -3)
+rotation = 1.5707964
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("12_k578b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrinterStation/LoadPaper" unique_id=104425790]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_thumt")
 
 [node name="Plants" type="Node" parent="." unique_id=1032753371]
 
@@ -223,3 +247,5 @@ position = Vector2(613, 352)
 navigation_polygon = SubResource("NavigationPolygon_xoil0")
 
 [node name="Timer" type="Timer" parent="." unique_id=1428303453]
+
+[connection signal="input_event" from="PrinterStation/LoadPaper" to="." method="_on_load_paper_input_event"]

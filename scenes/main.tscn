@@ -3,7 +3,61 @@
 [ext_resource type="Script" uid="uid://cdpt8m65vfrsq" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dghvxwcbldj47" path="res://scenes/office.tscn" id="2_0wfyh"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_l502e"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=695436861]
 script = ExtResource("1_o5qli")
 
 [node name="Office" parent="." unique_id=461136865 instance=ExtResource("2_0wfyh")]
+
+[node name="Control" type="Control" parent="." unique_id=1067970579]
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = 241.0
+offset_right = -173.0
+offset_bottom = 455.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=298459404]
+layout_mode = 0
+offset_right = 525.0
+offset_bottom = 181.0
+
+[node name="Welcome1" type="Label" parent="Control" unique_id=506772726]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 509.0
+offset_bottom = 82.0
+text = "The year is 1999, you work for the software company Outietech.
+Your cubicle is empty waiting to stash company secrets.
+"
+label_settings = SubResource("LabelSettings_l502e")
+
+[node name="Welcome2" type="Label" parent="Control" unique_id=1253234020]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 63.0
+offset_right = 561.0
+offset_bottom = 138.0
+text = "AVOID COWORKERS ON THE MOVE!
+Sneak into their desk and send documents to the printer
+or steal a USB"
+label_settings = SubResource("LabelSettings_l502e")
+
+[node name="Button" type="Button" parent="Control" unique_id=1633044030]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 125.0
+offset_right = 295.0
+offset_bottom = 156.0
+text = "Start"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
