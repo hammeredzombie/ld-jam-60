@@ -18,5 +18,3 @@ shape = SubResource("RectangleShape2D_paper")
 [node name="Paper" type="Sprite2D" parent="Area2D" unique_id=1746487241]
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_vas6c")
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

@@ -28,6 +28,7 @@ texture = ExtResource("1_5uxwa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=77028489]
 shape = SubResource("CircleShape2D_thumt")
+debug_color = Color(0.89163315, 0.31181338, 0.23849148, 0.41960785)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -82,6 +82,9 @@ func _on_computer_input_area_input_event(_viewport: Node, event: InputEvent, _sh
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
 		if _Worker is Player:
 			return
+		if _Worker.state == Coworker.WorkerState.IDLE:
+			Global.lose.emit()
+			return
 		if computer_on:
 			if not print_sent:
 				Global.job_sent_to_printer.emit(self)

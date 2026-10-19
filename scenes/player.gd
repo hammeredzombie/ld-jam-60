@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const CAMERA_ZOOM_MIN = 2.0
+const CAMERA_ZOOM_MIN = 2.5
 const CAMERA_ZOOM_MAX = 5.0
 const CAMERA_ZOOM_STEP = 0.2
 
@@ -26,17 +26,18 @@ func _input(event: InputEvent) -> void:
 		if global_position.distance_to(get_global_mouse_position()) > INTERACT_DISTANCE:
 			get_viewport().set_input_as_handled()
 			return
-	if event is InputEventMouseButton:
-		if event.is_action_pressed("zoom_in"):
-			_Camera.zoom.x -= CAMERA_ZOOM_STEP
-			_Camera.zoom.y -= CAMERA_ZOOM_STEP
-			_Camera.zoom.x = clamp(_Camera.zoom.x, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
-			_Camera.zoom.y = clamp(_Camera.zoom.y, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
-		elif event.is_action_pressed("zoom_out"):
-			_Camera.zoom.x += CAMERA_ZOOM_STEP
-			_Camera.zoom.y += CAMERA_ZOOM_STEP
-			_Camera.zoom.x = clamp(_Camera.zoom.x, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
-			_Camera.zoom.y = clamp(_Camera.zoom.y, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
+	# if event is InputEventMouseButton:
+	# 	if event.is_action_pressed("zoom_in"):
+	# 		_Camera.zoom.x -= CAMERA_ZOOM_STEP
+	# 		_Camera.zoom.y -= CAMERA_ZOOM_STEP
+	# 		_Camera.zoom.x = clamp(_Camera.zoom.x, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
+	# 		_Camera.zoom.y = clamp(_Camera.zoom.y, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
+	# 	elif event.is_action_pressed("zoom_out"):
+	# 		_Camera.zoom.x += CAMERA_ZOOM_STEP
+	# 		_Camera.zoom.y += CAMERA_ZOOM_STEP
+	# 		_Camera.zoom.x = clamp(_Camera.zoom.x, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
+	# 		_Camera.zoom.y = clamp(_Camera.zoom.y, CAMERA_ZOOM_MIN, CAMERA_ZOOM_MAX)
+	# 	print(_Camera.zoom)
 
 
 func _ready() -> void:

@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cm6yk31x7q6l2" path="res://assets/png/picture_frame.png" id="12_yi722"]
 [ext_resource type="Texture2D" uid="uid://cqoisig5wxcdp" path="res://assets/png/chair.png" id="13_cp3fa"]
 [ext_resource type="Texture2D" uid="uid://b3agw7sdaw4i8" path="res://assets/png/file_organizer.png" id="13_iw6we"]
-[ext_resource type="PackedScene" uid="uid://th4wqpxdx0ak" path="res://scenes/furniture/cabinet.tscn" id="13_yi722"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l502e"]
 size = Vector2(32, 33)
@@ -43,10 +42,6 @@ texture = ExtResource("12_yi722")
 position = Vector2(46, -10)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("12_yi722")
-
-[node name="Cabinet" parent="." unique_id=164574680 instance=ExtResource("13_yi722")]
-position = Vector2(-36, -35)
-rotation = 1.5707964
 
 [node name="Desktop" type="Sprite2D" parent="." unique_id=260274286]
 z_index = -1

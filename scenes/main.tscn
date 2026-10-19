@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdpt8m65vfrsq" path="res://scenes/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dghvxwcbldj47" path="res://scenes/office.tscn" id="2_0wfyh"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_l502e"]
-font_color = Color(0, 0, 0, 1)
+[ext_resource type="VideoStream" uid="uid://cdqqk8hdh83ol" path="res://assets/input.ogv" id="3_sugp2"]
 
 [node name="Main" type="Node2D" unique_id=695436861]
 script = ExtResource("1_o5qli")
@@ -25,30 +23,23 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="ColorRect" type="ColorRect" parent="Control" unique_id=298459404]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=2110126213]
 layout_mode = 0
-offset_right = 525.0
-offset_bottom = 181.0
-
-[node name="Welcome" type="Label" parent="Control" unique_id=1253234020]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 20.0
-offset_right = 572.0
-offset_bottom = 147.0
-text = "TO WIN: steal papers, USBs, and print documents from the PC
-YOU LOSE: if you get near a coworker ON THE MOVE
-LEFT CLICK: interact
-SCROLLWHEEL: zoom
-SHIFT: sprint"
-label_settings = SubResource("LabelSettings_l502e")
+offset_left = 126.00001
+offset_top = -1.0000153
+offset_right = 924.0
+offset_bottom = 719.0
+scale = Vector2(0.32000023, 0.24000022)
+stream = ExtResource("3_sugp2")
+autoplay = true
 
 [node name="Button" type="Button" parent="Control" unique_id=1633044030]
+visible = false
 layout_mode = 0
-offset_left = 331.0
-offset_top = 126.0
-offset_right = 410.0
-offset_bottom = 157.0
+offset_left = 256.0
+offset_top = 73.0
+offset_right = 335.0
+offset_bottom = 104.0
 text = "Start"
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

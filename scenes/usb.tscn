@@ -17,5 +17,3 @@ shape = SubResource("RectangleShape2D_usb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1986572903]
 texture = ExtResource("1_usb")
-
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

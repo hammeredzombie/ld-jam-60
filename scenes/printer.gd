@@ -2,22 +2,31 @@ extends Node2D
 class_name Printer
 
 const PRINT_TIME: float = 5.0
+const LOAD_PAPER := 'load paper'
+const NO_JOBS := 'no jobs'
+
 
 @onready var _PaperLoaded: Sprite2D = $PaperLoaded
 @onready var _PaperPrinted: Sprite2D = $PaperPrinted
 @onready var _LightRed: Sprite2D = $LightRed
 @onready var _LightGreen: Sprite2D = $LightGreen
 @onready var _Label: Label = $Control/Label
+@onready var _Error: Label = $Error
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 var printing: bool = false
 var paper_loaded: bool = false
 var paper_printed: bool = false
+var _feeding: bool = false
+var _paper_loaded_rest_position: Vector2
+var _paper_loaded_rest_scale: Vector2
 
 var jobs: int = 0
 
 func _ready() -> void:
 	rng.randomize()
+	_paper_loaded_rest_position = _PaperLoaded.position
+	_paper_loaded_rest_scale = _PaperLoaded.scale
 	Global.job_sent_to_printer.connect(_on_job_sent_to_printer)
 
 
@@ -26,7 +35,11 @@ func _process(_delta: float) -> void:
 
 
 func on_paper_loaded() -> void:
+	if _feeding or paper_loaded:
+		return
 	paper_loaded = true
+	_PaperLoaded.position = _paper_loaded_rest_position
+	_PaperLoaded.scale = _paper_loaded_rest_scale
 	_PaperLoaded.show()
 
 
@@ -37,6 +50,8 @@ func _on_paper_printed() -> void:
 
 
 func _play_feed_animation() -> void:
+	paper_loaded = false
+	_feeding = true
 	_flash_green_light()
 	var feed_tween = create_tween().set_parallel()
 	feed_tween.tween_property(_PaperLoaded, "position:y", -13.6, PRINT_TIME)
@@ -45,6 +60,7 @@ func _play_feed_animation() -> void:
 
 
 func _play_print_animation() -> void:
+	_feeding = false
 	jobs -= 1
 	_show_print_number(jobs)
 	_flash_green_light()
@@ -82,7 +98,14 @@ func _on_print_job_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 			_play_feed_animation()
 		else:
 			_flash_red_light()
-
+			if printing:
+				return
+			if jobs == 0:
+				_Error.text = NO_JOBS
+			elif not paper_loaded:
+				_Error.text = LOAD_PAPER
+			await get_tree().create_timer(1.0).timeout
+			_Error.text = ''
 
 func _show_print_number(num: int) -> void:
 	_Label.text = str(num)
