@@ -7,13 +7,22 @@ extends Node2D
 @onready var _Video: VideoStreamPlayer = $Tutorial/Video
 @onready var _Button: Button = $Tutorial/Start
 
+static var tutorial_played := false
+
 var _waiting_for_texture := false
 
 
 func _ready() -> void:
+	if tutorial_played:
+		get_tree().paused = false
+		_Tutorial.hide()
+		_Tutorial.queue_free()
+		return
+
 	_Tutorial.process_mode = Node.PROCESS_MODE_ALWAYS
 	_Office.hide()
 	_fit_video()
+	_Video.play()
 	get_viewport().size_changed.connect(_fit_video)
 	get_tree().paused = true
 
@@ -55,5 +64,6 @@ func _on_video_stream_player_finished() -> void:
 
 
 func _on_button_pressed() -> void:
+	tutorial_played = true
 	get_tree().paused = false
 	_Tutorial.queue_free()

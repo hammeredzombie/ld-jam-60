@@ -31,7 +31,6 @@ offset_right = 798.0
 offset_bottom = 720.0
 mouse_filter = 2
 stream = ExtResource("3_sugp2")
-autoplay = true
 expand = true
 buffering_msec = 1000
 
